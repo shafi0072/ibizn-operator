@@ -12,7 +12,7 @@ const Auth = () => {
 
      return (
           <div>
-               <section className="bg-gray-50">
+               <section className={`bg-gray-50 ${"Log In" ? "my-0" : "my-20"}`}>
                     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
                          <div className="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
@@ -42,10 +42,43 @@ const Auth = () => {
                                                        {errors.number?.type === 'maxLength' && <p className="text-red-600">Number cannot exceed 12 characters</p>}
                                                   </div>
                                         }
+                                        {
+                                             active === "Log In" ? <div></div>
+                                                  :
+                                                  <div>
+                                                       <label for="Number" className="block mb-2 text-sm font-medium text-white">What's app</label>
+                                                       <input type="tel" placeholder="What's app number" {...register("number_2", { required: true, minLength: 6, maxLength: 12 })} className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " />{errors.number?.type === 'required' && <p className="text-red-600">Number is required</p>}
+                                                       {errors.number_2?.type === 'minLength' && <p className="text-red-600">Number must be at least 6 characters</p>}
+                                                       {errors.number_2?.type === 'maxLength' && <p className="text-red-600">Number cannot exceed 12 characters</p>}
+                                                  </div>
+                                        }
                                         <div>
                                              <label for="email" className="block mb-2 text-sm font-medium text-white">Email</label>
                                              <input type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " />
+                                             {errors.Email?.type === 'minLength' && <p className="text-red-600">Number must be at least 6 characters</p>}
                                         </div>
+                                        {
+                                             active === "Log In" ? <div></div>
+                                                  :
+                                                  <div>
+                                                       <label for="Number" className="block mb-2 text-sm font-medium text-white">Company Name</label>
+                                                       <input type="tel" placeholder="Company Name" {...register("company_name", { required: true, minLength: 6, maxLength: 12 })} className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " />{errors.number?.type === 'required' && <p className="text-red-600">Number is required</p>}
+                                                       {errors.company_name?.type === 'required' && <p className="text-red-600">Company Name is required</p>}
+                                                       {errors.company_name?.type === 'minLength' && <p className="text-red-600">Name must be at least 2 characters</p>}
+                                                       {errors.company_name?.type === 'maxLength' && <p className="text-red-600">Name cannot exceed 80 characters</p>}
+                                                  </div>
+                                        }
+                                        {
+                                             active === "Log In" ? <div></div>
+                                                  :
+                                                  <div>
+                                                       <label for="Number" className="block mb-2 text-sm font-medium text-white">Company Address</label>
+                                                       <input type="tel" placeholder="Company Address" {...register("company_address", { required: true, minLength: 6, maxLength: 12 })} className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " />{errors.number?.type === 'required' && <p className="text-red-600">Number is required</p>}
+                                                       {errors.company_address?.type === 'required' && <p className="text-red-600">Company Address is required</p>}
+                                                       {errors.company_address?.type === 'minLength' && <p className="text-red-600">Name must be at least 2 characters</p>}
+                                                       {errors.company_address?.type === 'maxLength' && <p className="text-red-600">Name cannot exceed 80 characters</p>}
+                                                  </div>
+                                        }
                                         <div>
                                              <label for="confirm-password" className="block mb-2 text-sm font-medium text-white">Password</label>
                                              <input type="password"  {...register("password", {
